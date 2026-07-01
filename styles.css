@@ -626,7 +626,7 @@ h3 {
   }
 
   .hero {
-    min-height: 300px;
+    min-height: auto;
     padding-top: 112px;
   }
 
