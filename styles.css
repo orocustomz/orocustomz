@@ -1,0 +1,688 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #030303;
+  --panel: #0d0d0d;
+  --panel-2: #141414;
+  --line: rgba(255,255,255,.13);
+  --white: #ffffff;
+  --silver: #b3b3b3;
+  --muted: #bdbdbd;
+  --soft: rgba(179,179,179,.16);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  opacity: .07;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,.4) 0 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,.25) 0 1px, transparent 1px);
+  background-size: 28px 28px;
+  mix-blend-mode: overlay;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(179,179,179,.14), transparent 62%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header {
+  position: fixed;
+  z-index: 50;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1160px, calc(100% - 32px));
+  height: 72px;
+  padding: 0 18px 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(5,5,5,.72);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 22px 70px rgba(0,0,0,.35);
+}
+
+.brand img {
+  width: 158px;
+  max-height: 42px;
+  display: block;
+}
+
+.desktop-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 26px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.desktop-nav a {
+  transition: color .2s ease;
+}
+
+.desktop-nav a:hover {
+  color: var(--white);
+}
+
+.nav-cta {
+  padding: 12px 17px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  background: rgba(255,255,255,.05);
+}
+
+.section-pad {
+  padding: 110px 6%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(179,179,179,.18), transparent 32%),
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,.08), transparent 34%),
+    linear-gradient(135deg, #030303, #0e0e0e 62%, #050505);
+}
+
+.hero-mark {
+  position: absolute;
+  width: min(960px, 130vw);
+  opacity: .035;
+  right: -220px;
+  top: 18%;
+  filter: blur(.2px);
+}
+
+.hero-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  align-items: center;
+  gap: 52px;
+  padding-top: 58px;
+}
+
+.eyebrow {
+  color: var(--silver);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: clamp(54px, 8vw, 116px);
+  line-height: .88;
+  letter-spacing: -5px;
+  max-width: 940px;
+}
+
+h2 {
+  font-size: clamp(34px, 5.4vw, 74px);
+  line-height: .95;
+  letter-spacing: -3px;
+}
+
+h3 {
+  font-size: 24px;
+  letter-spacing: -.6px;
+}
+
+.lead {
+  max-width: 680px;
+  color: var(--muted);
+  margin-top: 26px;
+  font-size: clamp(17px, 2vw, 21px);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.center {
+  justify-content: center;
+}
+
+.button {
+  border-radius: 999px;
+  padding: 15px 24px;
+  font-weight: 900;
+  transition: transform .22s ease, background .22s ease, border-color .22s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button-light {
+  background: var(--white);
+  color: var(--black);
+}
+
+.button-dark {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+}
+
+.showcase {
+  min-height: 520px;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035)),
+    radial-gradient(circle at top, rgba(179,179,179,.2), transparent 42%);
+  box-shadow: 0 40px 120px rgba(0,0,0,.48);
+  transform-style: preserve-3d;
+}
+
+.showcase-top,
+.showcase-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  color: var(--silver);
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.showcase-logo {
+  display: grid;
+  place-items: center;
+  min-height: 310px;
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(0,0,0,.25);
+}
+
+.showcase-logo img {
+  width: min(360px, 80%);
+  filter: drop-shadow(0 0 24px rgba(255,255,255,.16));
+}
+
+.scroll-note {
+  position: absolute;
+  left: 6%;
+  bottom: 32px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: var(--silver);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.scroll-note span {
+  width: 42px;
+  height: 1px;
+  background: var(--silver);
+}
+
+.ticker {
+    overflow: hidden;
+    background: #070707;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.ticker-track {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.ticker-content {
+    display: flex;
+    gap: 64px;
+    padding-right: 64px;
+}
+
+.ticker span {
+    color: var(--silver);
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.section-title {
+  max-width: 980px;
+  margin-bottom: 42px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.service-card {
+  min-height: 255px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255,255,255,.28);
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.12), rgba(255,255,255,.035));
+}
+
+.service-card span,
+.process-step span {
+  color: var(--silver);
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.service-card h3 {
+  margin-top: 44px;
+}
+
+.service-card p,
+.price-copy p,
+.quote-box p {
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.pricing {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 46px;
+  align-items: start;
+  background: #080808;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.price-panel {
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  padding: 18px 28px;
+  background:
+    radial-gradient(circle at top right, rgba(179,179,179,.13), transparent 34%),
+    var(--panel);
+}
+
+.price-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.price-line:last-child {
+  border-bottom: 0;
+}
+
+.price-line strong {
+  color: var(--white);
+  font-size: 18px;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 230px 230px;
+  gap: 18px;
+  grid-template-areas:
+    "banner plate logo shirts"
+    "banner install install shirts";
+}
+
+.work-card {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 22px;
+  display: flex;
+  align-items: end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+
+.work-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.72));
+}
+
+.work-card span {
+  position: relative;
+  z-index: 1;
+  font-weight: 900;
+  color: var(--white);
+}
+
+
+.windshield-photo {
+  grid-area: banner;
+  background-position: center 70%;
+}
+
+.plate-photo {
+  grid-area: plate;
+  background-position: center 50%;
+}
+
+.logo-photo {
+  grid-area: logo;
+  background-position: center;
+}
+
+.install-photo {
+  grid-area: install;
+  background-position: center 60%;
+}
+
+.shirts-photo {
+  grid-area: shirts;
+  background-position: center 50%;
+}
+
+.process {
+  background: #080808;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.process-step {
+  border-top: 1px solid var(--silver);
+  padding-top: 24px;
+}
+
+.process-step p {
+  color: var(--muted);
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.reviews {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.review-card {
+  max-width: 1040px;
+  margin: auto;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 38px;
+  padding: 60px 24px;
+  background:
+    radial-gradient(circle at center, rgba(179,179,179,.16), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+}
+
+.review-card img {
+  width: min(360px, 86%);
+  margin-bottom: 34px;
+  opacity: .92;
+}
+
+.review-card p {
+  font-size: clamp(30px, 4.4vw, 60px);
+  line-height: 1;
+  letter-spacing: -2px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.review-card span {
+  display: block;
+  color: var(--silver);
+  margin-top: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.quote {
+  padding-top: 70px;
+}
+
+.quote-box {
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 42px;
+  padding: 78px 28px;
+  background:
+    radial-gradient(circle at top, rgba(179,179,179,.18), transparent 40%),
+    linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+}
+
+.quote-box p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 34px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--silver);
+  font-size: 13px;
+}
+
+.footer img {
+  width: 150px;
+  max-height: 42px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: .08s; }
+.delay-2 { transition-delay: .16s; }
+.delay-3 { transition-delay: .24s; }
+
+@media (max-width: 980px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hero-grid,
+  .pricing {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase {
+    min-height: 430px;
+  }
+
+  .service-grid,
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 230px 230px;
+  gap: 18px;
+  grid-template-areas:
+    "banner plate logo shirts"
+    "banner install install shirts";
+}
+
+  h1 {
+    letter-spacing: -3px;
+  }
+}
+
+@media (max-width: 620px) {
+  .header {
+    top: 12px;
+    width: calc(100% - 20px);
+    height: 64px;
+    padding: 0 12px 0 16px;
+  }
+
+  .brand img {
+    width: 132px;
+  }
+
+  .nav-cta {
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+
+  .section-pad {
+    padding: 82px 5%;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 112px;
+  }
+
+  .hero-grid {
+    gap: 32px;
+  }
+
+  h1 {
+    font-size: clamp(48px, 16vw, 72px);
+    letter-spacing: -2.6px;
+  }
+
+  h2 {
+    letter-spacing: -1.8px;
+  }
+
+  .lead {
+    font-size: 17px;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .showcase {
+    min-height: 330px;
+    border-radius: 26px;
+  }
+
+  .showcase-top,
+  .showcase-bottom {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .service-grid,
+  .process-grid,
+  .work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 230px 230px;
+  gap: 18px;
+  grid-template-areas:
+    "banner plate logo shirts"
+    "banner install install shirts";
+}
+
+  .work-card.tall,
+  .footer {
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .cursor-glow {
+    display: none;
+  }
+}
