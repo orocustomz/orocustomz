@@ -663,12 +663,13 @@ h3 {
     gap: 6px;
   }
 
-  .service-grid,
-.process-grid {
-  display: grid;
-  gap: 18px;
+.service-grid {
+  grid-template-columns: 1fr;
 }
 
+.process-grid {
+  grid-template-columns: 1fr;
+}
 .work-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
