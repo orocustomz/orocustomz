@@ -709,8 +709,19 @@ h3 {
   }
 
   .work-grid {
+    display: grid !important;
     grid-template-columns: 1fr !important;
-    grid-template-rows: auto !important;
-    grid-template-areas: none !important;
+    grid-template-rows: none !important;
+    grid-template-areas:
+      "banner"
+      "plate"
+      "logo"
+      "install"
+      "shirts" !important;
+    gap: 18px !important;
+  }
+
+  .work-card {
+    min-height: 230px;
   }
 }
