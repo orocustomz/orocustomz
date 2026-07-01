@@ -691,3 +691,26 @@ h3 {
     display: none;
   }
 }
+@media (max-width: 620px) {
+  .service-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .service-card {
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .process-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    grid-template-areas: none !important;
+  }
+}
