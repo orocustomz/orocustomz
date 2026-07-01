@@ -606,7 +606,7 @@ h3 {
 
 @media (max-width: 620px) {
   .header {
-    top: 10px;
+    top: 12px;
     width: calc(100% - 20px);
     height: 64px;
     padding: 0 12px 0 16px;
