@@ -1,3 +1,11 @@
+// Always start at the top when the page loads or refreshes
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+});
 const glow = document.querySelector(".cursor-glow");
 
 window.addEventListener("mousemove", (event) => {
