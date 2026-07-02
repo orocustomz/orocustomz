@@ -733,8 +733,8 @@ h3 {
 .work-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow:
-    0 20px 40px rgba(0,0,0,.4),
-    0 0 0 1px rgba(255,255,255,.08);
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(255, 255, 255, 0.18);
 }
 
 .work-card img {
