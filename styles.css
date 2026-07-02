@@ -744,13 +744,6 @@ h3 {
 .work-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.work-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.45),
-    0 0 22px rgba(255, 255, 255, 0.18);
-}
 @media (max-width: 768px) {
   .brand img {
     width: 105px;
@@ -779,9 +772,23 @@ h3 {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
+.work-card {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-.work-card.tap-active,
-.work-card:hover {
+@media (hover: hover) {
+  .work-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.45),
+      0 0 22px rgba(255, 255, 255, 0.18);
+  }
+}
+
+.work-card.tap-active {
   transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.45),
