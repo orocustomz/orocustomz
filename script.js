@@ -154,22 +154,30 @@ document.querySelectorAll(".work-card").forEach((card) => {
 document.querySelectorAll(".work-card").forEach((card) => {
   card.addEventListener("pointerdown", () => {
     card.classList.add("tap-active");
-
-    setTimeout(() => {
-      card.classList.remove("tap-active");
-      card.blur?.();
-    }, 180);
   });
-});
-  card.addEventListener("pointercancel", () => {
-    card.classList.remove("tap-active");
-  });
-document.querySelectorAll(".work-card").forEach((card) => {
-  card.addEventListener("pointerdown", () => {
-    card.classList.add("tap-active");
 
+  card.addEventListener("pointerup", () => {
     setTimeout(() => {
       card.classList.remove("tap-active");
     }, 220);
+  });
+
+  card.addEventListener("pointercancel", () => {
+    card.classList.remove("tap-active");
+  });
+});
+document.querySelectorAll(".work-card").forEach((card) => {
+  card.addEventListener("pointerdown", () => {
+    card.classList.add("tap-active");
+  });
+
+  card.addEventListener("pointerup", () => {
+    setTimeout(() => {
+      card.classList.remove("tap-active");
+    }, 220);
+  });
+
+  card.addEventListener("pointercancel", () => {
+    card.classList.remove("tap-active");
   });
 });
