@@ -726,17 +726,39 @@ h3 {
   }
 }
 @media (max-width: 768px) {
-  .nav-links,
-  nav,
-  .navbar nav {
-    display: flex !important;
-    gap: 22px;
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
   }
 
-  .nav-links a,
-  nav a,
-  .navbar nav a {
-    display: inline-block !important;
-    font-size: 12px;
+  .brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .brand img {
+    width: 140px;
+    height: auto;
+  }
+
+  .desktop-nav {
+    display: flex !important;
+    gap: 18px;
+  }
+
+  .desktop-nav a {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .nav-cta {
+    font-size: 13px;
+    padding: 8px 14px;
+    white-space: nowrap;
   }
 }
