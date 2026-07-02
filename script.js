@@ -73,11 +73,15 @@ const navLinks = document.querySelectorAll(".desktop-nav a");
 const servicesSection = document.querySelector("#services");
 const workSection = document.querySelector("#work");
 
+let isClickScrolling = false;
+
 function clearActiveNav() {
   navLinks.forEach((link) => link.classList.remove("active"));
 }
 
 function updateActiveNav() {
+  if (isClickScrolling) return;
+
   const triggerPoint = window.innerHeight * 0.25;
 
   clearActiveNav();
@@ -96,8 +100,10 @@ navLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
 
+    isClickScrolling = true;
+
     clearActiveNav();
-    link.classList.add("active"); // appears immediately
+    link.classList.add("active");
 
     const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
@@ -106,8 +112,9 @@ navLinks.forEach((link) => {
 
     setTimeout(() => {
       history.replaceState(null, "", window.location.pathname);
+      isClickScrolling = false;
       updateActiveNav();
-    }, 350);
+    }, 700);
   });
 });
 
