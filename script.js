@@ -187,31 +187,13 @@ if (instagramLink) {
 // ========================================
 
 document.getElementById("year").textContent = new Date().getFullYear();
-
 document.querySelector(".footer-logo")?.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const start = window.scrollY;
-  const duration = 700;
-  let startTime = null;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
-  function smoothScroll(timestamp) {
-    if (!startTime) startTime = timestamp;
-
-    const progress = Math.min((timestamp - startTime) / duration, 1);
-
-    const ease = progress < 0.5
-      ? 2 * progress * progress
-      : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-
-    window.scrollTo(0, start * (1 - ease));
-
-    if (progress < 1) {
-      requestAnimationFrame(smoothScroll);
-    } else {
-      history.replaceState(null, "", window.location.pathname);
-    }
-  }
-
-  requestAnimationFrame(smoothScroll);
+  history.replaceState(null, "", window.location.pathname);
 });
