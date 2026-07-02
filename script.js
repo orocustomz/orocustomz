@@ -181,3 +181,9 @@ if (instagramLink) {
     }, 500);
   });
 }
+
+// ========================================
+// Footer
+// ========================================
+
+document.getElementById("year").textContent = new Date().getFullYear();
