@@ -725,3 +725,18 @@ h3 {
     min-height: 230px;
   }
 }
+@media (max-width: 768px) {
+  .nav-links,
+  nav,
+  .navbar nav {
+    display: flex !important;
+    gap: 22px;
+  }
+
+  .nav-links a,
+  nav a,
+  .navbar nav a {
+    display: inline-block !important;
+    font-size: 12px;
+  }
+}
