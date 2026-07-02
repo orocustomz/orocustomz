@@ -726,39 +726,17 @@ h3 {
   }
 }
 @media (max-width: 768px) {
-  .header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 16px;
-  }
-
-  .brand {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .brand img {
-    width: 140px;
-    height: auto;
-  }
-
-  .desktop-nav {
+  .nav-links,
+  nav,
+  .navbar nav {
     display: flex !important;
-    gap: 18px;
+    gap: 22px;
   }
 
-  .desktop-nav a {
-    font-size: 13px;
-    white-space: nowrap;
-  }
-
-  .nav-cta {
-    font-size: 13px;
-    padding: 8px 14px;
-    white-space: nowrap;
+  .nav-links a,
+  nav a,
+  .navbar nav a {
+    display: inline-block !important;
+    font-size: 12px;
   }
 }
