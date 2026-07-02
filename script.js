@@ -80,9 +80,7 @@ navLinks.forEach((link) => {
     const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
 
-    target.scrollIntoView({
-      behavior: "smooth"
-    });
+    target.scrollIntoView({ behavior: "smooth" });
 
     setTimeout(() => {
       history.replaceState(null, "", window.location.pathname);
@@ -96,15 +94,11 @@ window.addEventListener("scroll", () => {
   navLinks.forEach((link) => link.classList.remove("active"));
 
   if (
-    servicesSection &&
     y >= servicesSection.offsetTop &&
     y < servicesSection.offsetTop + servicesSection.offsetHeight
   ) {
     document.querySelector('.desktop-nav a[href="#services"]').classList.add("active");
-  }
-
-  if (
-    workSection &&
+  } else if (
     y >= workSection.offsetTop &&
     y < workSection.offsetTop + workSection.offsetHeight
   ) {
