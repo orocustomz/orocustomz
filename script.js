@@ -18,8 +18,6 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-    } else {
-      entry.target.classList.remove("visible");
     }
   });
 }, { threshold: 0.16 });
@@ -72,13 +70,12 @@ if (tickerTrack) {
 }
 // Smooth scrolling + active underline + remove URL hash
 const navLinks = document.querySelectorAll(".desktop-nav a");
+const servicesSection = document.querySelector("#services");
+const workSection = document.querySelector("#work");
 
 navLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
-
-    navLinks.forEach((item) => item.classList.remove("active"));
-    link.classList.add("active");
 
     const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
@@ -91,4 +88,26 @@ navLinks.forEach((link) => {
       history.replaceState(null, "", window.location.pathname);
     }, 300);
   });
+});
+
+window.addEventListener("scroll", () => {
+  const y = window.scrollY + 160;
+
+  navLinks.forEach((link) => link.classList.remove("active"));
+
+  if (
+    servicesSection &&
+    y >= servicesSection.offsetTop &&
+    y < servicesSection.offsetTop + servicesSection.offsetHeight
+  ) {
+    document.querySelector('.desktop-nav a[href="#services"]').classList.add("active");
+  }
+
+  if (
+    workSection &&
+    y >= workSection.offsetTop &&
+    y < workSection.offsetTop + workSection.offsetHeight
+  ) {
+    document.querySelector('.desktop-nav a[href="#work"]').classList.add("active");
+  }
 });
