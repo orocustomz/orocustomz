@@ -113,7 +113,7 @@ a {
 
   transform: translateX(-50%) scaleX(0);
   transform-origin: center;
-  transition: transform 0.08s ease;
+  transition: transform 0.18s ease;
 }
 
 .desktop-nav a.active::after {
