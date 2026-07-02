@@ -1,18 +1,19 @@
-// Always start at the top when the page loads or refreshes
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
+// ========================================
+// Page Setup
+// ========================================
+
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
 }
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   window.scrollTo(0, 0);
 });
-const glow = document.querySelector(".cursor-glow");
 
-window.addEventListener("mousemove", (event) => {
-  if (!glow) return;
-  glow.style.left = `${event.clientX}px`;
-  glow.style.top = `${event.clientY}px`;
-});
+
+// ========================================
+// Reveal Animations
+// ========================================
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -22,53 +23,46 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.16 });
 
-document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+document.querySelectorAll(".reveal").forEach((element) => {
+  observer.observe(element);
+});
 
-const showcase = document.querySelector(".showcase");
 
-if (showcase) {
-  showcase.addEventListener("mousemove", (event) => {
-    const rect = showcase.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const rotateY = ((x / rect.width) - 0.5) * 8;
-    const rotateX = ((y / rect.height) - 0.5) * -8;
-    showcase.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
+// ========================================
+// Infinite Services Ticker
+// ========================================
 
-  showcase.addEventListener("mouseleave", () => {
-    showcase.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
-  });
-}
 const tickerTrack = document.querySelector(".ticker-track");
 
 if (tickerTrack) {
+  const original = tickerTrack.innerHTML;
 
-    const original = tickerTrack.innerHTML;
+  while (tickerTrack.scrollWidth < window.innerWidth * 3) {
+    tickerTrack.innerHTML += original;
+  }
 
-    while (tickerTrack.scrollWidth < window.innerWidth * 3) {
-        tickerTrack.innerHTML += original;
+  let position = 0;
+  const speed = 1.2;
+
+  function animateTicker() {
+    position -= speed;
+
+    if (Math.abs(position) >= tickerTrack.firstElementChild.offsetWidth) {
+      position = 0;
     }
 
-    let position = 0;
-    const speed = 1.2; // <-- Change this number for speed
+    tickerTrack.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animateTicker);
+  }
 
-    function animateTicker() {
-
-        position -= speed;
-
-        if (Math.abs(position) >= tickerTrack.firstElementChild.offsetWidth) {
-            position = 0;
-        }
-
-        tickerTrack.style.transform = `translateX(${position}px)`;
-
-        requestAnimationFrame(animateTicker);
-    }
-
-    animateTicker();
+  animateTicker();
 }
-// Smooth scrolling + active nav underline
+
+
+// ========================================
+// Smooth Scroll & Active Navigation
+// ========================================
+
 const navLinks = document.querySelectorAll(".desktop-nav a");
 const smoothLinks = document.querySelectorAll('a[href^="#"]');
 const servicesSection = document.querySelector("#services");
@@ -82,7 +76,9 @@ function setActive(section) {
 
   currentSection = section;
 
-  navLinks.forEach(link => link.classList.remove("active"));
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+  });
 
   if (section) {
     document
@@ -92,10 +88,9 @@ function setActive(section) {
 }
 
 function updateActiveNav() {
-  if (isClickScrolling) return;
+  if (isClickScrolling || !servicesSection || !workSection) return;
 
   const triggerPoint = window.innerHeight * 0.25;
-
   const servicesRect = servicesSection.getBoundingClientRect();
   const workRect = workSection.getBoundingClientRect();
 
@@ -115,16 +110,18 @@ function updateActiveNav() {
 }
 
 smoothLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
+  link.addEventListener("click", (event) => {
+    const href = link.getAttribute("href");
+    if (!href || href === "#") return;
 
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    event.preventDefault();
     isClickScrolling = true;
 
-    const section = link.getAttribute("href").replace("#", "");
+    const section = href.replace("#", "");
     setActive(section);
-
-    const target = document.querySelector(link.getAttribute("href"));
-    if (!target) return;
 
     target.scrollIntoView({
       behavior: "smooth"
@@ -140,17 +137,12 @@ smoothLinks.forEach((link) => {
 
 window.addEventListener("scroll", updateActiveNav);
 window.addEventListener("load", updateActiveNav);
-document.querySelectorAll(".work-card").forEach((card) => {
-  card.addEventListener("touchstart", () => {
-    card.classList.add("tap-active");
-  });
 
-  card.addEventListener("touchend", () => {
-    setTimeout(() => {
-      card.classList.remove("tap-active");
-    }, 180);
-  });
-});
+
+// ========================================
+// Work Card Tap Animation
+// ========================================
+
 document.querySelectorAll(".work-card").forEach((card) => {
   card.addEventListener("pointerdown", () => {
     card.classList.add("tap-active");
@@ -165,19 +157,27 @@ document.querySelectorAll(".work-card").forEach((card) => {
   card.addEventListener("pointercancel", () => {
     card.classList.remove("tap-active");
   });
-});
-document.querySelectorAll(".work-card").forEach((card) => {
-  card.addEventListener("pointerdown", () => {
-    card.classList.add("tap-active");
-  });
 
-  card.addEventListener("pointerup", () => {
-    setTimeout(() => {
-      card.classList.remove("tap-active");
-    }, 220);
-  });
-
-  card.addEventListener("pointercancel", () => {
+  card.addEventListener("pointerleave", () => {
     card.classList.remove("tap-active");
   });
 });
+
+
+// ========================================
+// Instagram App Link
+// ========================================
+
+const instagramLink = document.querySelector(".instagram-link");
+
+if (instagramLink) {
+  instagramLink.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    window.location.href = "instagram://user?username=orocustomz";
+
+    setTimeout(() => {
+      window.location.href = "https://instagram.com/orocustomz";
+    }, 500);
+  });
+}
