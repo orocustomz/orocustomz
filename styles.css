@@ -109,6 +109,8 @@ a {
   border-radius: 999px;
   transform: translateX(-50%);
   transition: width 0.18s ease;
+  will-change: width;
+  backface-visibility: hidden;
 }
 
 .desktop-nav a.active::after {
