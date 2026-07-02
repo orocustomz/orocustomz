@@ -1,3 +1,7 @@
+/* ========================================
+   Reset & Variables
+======================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,6 +18,11 @@
   --muted: #bdbdbd;
   --soft: rgba(179,179,179,.16);
 }
+
+
+/* ========================================
+   Global
+======================================== */
 
 html {
   scroll-behavior: smooth;
@@ -45,16 +54,48 @@ a {
   mix-blend-mode: overlay;
 }
 
-.cursor-glow {
-  position: fixed;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(179,179,179,.14), transparent 62%);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 0;
+.section-pad {
+  padding: 110px 6%;
+  position: relative;
+  z-index: 1;
 }
+
+.eyebrow {
+  color: var(--silver);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: clamp(54px, 8vw, 116px);
+  line-height: .88;
+  letter-spacing: -5px;
+  max-width: 940px;
+}
+
+h2 {
+  font-size: clamp(34px, 5.4vw, 74px);
+  line-height: .95;
+  letter-spacing: -3px;
+}
+
+h3 {
+  font-size: 24px;
+  letter-spacing: -.6px;
+}
+
+.section-title {
+  max-width: 980px;
+  margin-bottom: 42px;
+}
+
+
+/* ========================================
+   Header & Navigation
+======================================== */
 
 .header {
   position: fixed;
@@ -85,7 +126,6 @@ a {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
   display: flex;
   gap: 26px;
   color: var(--muted);
@@ -125,11 +165,10 @@ a {
   background: rgba(255,255,255,.05);
 }
 
-.section-pad {
-  padding: 110px 6%;
-  position: relative;
-  z-index: 1;
-}
+
+/* ========================================
+   Hero & Buttons
+======================================== */
 
 .hero {
   min-height: 100vh;
@@ -158,40 +197,6 @@ a {
   align-items: center;
   gap: 52px;
   padding-top: 58px;
-}
-
-.eyebrow {
-  color: var(--silver);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 12px;
-  font-weight: 900;
-  margin-bottom: 18px;
-}
-
-h1 {
-  font-size: clamp(54px, 8vw, 116px);
-  line-height: .88;
-  letter-spacing: -5px;
-  max-width: 940px;
-}
-
-h2 {
-  font-size: clamp(34px, 5.4vw, 74px);
-  line-height: .95;
-  letter-spacing: -3px;
-}
-
-h3 {
-  font-size: 24px;
-  letter-spacing: -.6px;
-}
-
-.lead {
-  max-width: 680px;
-  color: var(--muted);
-  margin-top: 26px;
-  font-size: clamp(17px, 2vw, 21px);
 }
 
 .hero-actions {
@@ -226,110 +231,45 @@ h3 {
   background: rgba(255,255,255,.04);
 }
 
-.showcase {
-  min-height: 520px;
-  border: 1px solid var(--line);
-  border-radius: 34px;
-  padding: 26px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035)),
-    radial-gradient(circle at top, rgba(179,179,179,.2), transparent 42%);
-  box-shadow: 0 40px 120px rgba(0,0,0,.48);
-  transform-style: preserve-3d;
-}
 
-.showcase-top,
-.showcase-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  color: var(--silver);
-  font-size: 11px;
-  letter-spacing: 1.6px;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.showcase-logo {
-  display: grid;
-  place-items: center;
-  min-height: 310px;
-  border-radius: 26px;
-  border: 1px solid rgba(255,255,255,.1);
-  background: rgba(0,0,0,.25);
-}
-
-.showcase-logo img {
-  width: min(360px, 80%);
-  filter: drop-shadow(0 0 24px rgba(255,255,255,.16));
-}
-
-.scroll-note {
-  position: absolute;
-  left: 6%;
-  bottom: 32px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  color: var(--silver);
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 900;
-}
-
-.scroll-note span {
-  width: 42px;
-  height: 1px;
-  background: var(--silver);
-}
+/* ========================================
+   Services Ticker
+======================================== */
 
 .ticker {
-    overflow: hidden;
-    background: #070707;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    height: 56px;
-    display: flex;
-    align-items: center;
+  overflow: hidden;
+  background: #070707;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  height: 56px;
+  display: flex;
+  align-items: center;
 }
 
 .ticker-track {
-    display: flex;
-    white-space: nowrap;
-    will-change: transform;
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
 }
 
 .ticker-content {
-    display: flex;
-    gap: 64px;
-    padding-right: 64px;
+  display: flex;
+  gap: 64px;
+  padding-right: 64px;
 }
 
 .ticker span {
-    color: var(--silver);
-    font-size: 13px;
-    letter-spacing: 3px;
-    font-weight: 900;
-    white-space: nowrap;
+  color: var(--silver);
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
-@keyframes ticker {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
 
-.section-title {
-  max-width: 980px;
-  margin-bottom: 42px;
-}
+/* ========================================
+   Services
+======================================== */
 
 .service-grid {
   display: grid;
@@ -367,48 +307,15 @@ h3 {
 }
 
 .service-card p,
-.price-copy p,
 .quote-box p {
   color: var(--muted);
   margin-top: 12px;
 }
 
-.pricing {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 46px;
-  align-items: start;
-  background: #080808;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
 
-.price-panel {
-  border: 1px solid var(--line);
-  border-radius: 32px;
-  padding: 18px 28px;
-  background:
-    radial-gradient(circle at top right, rgba(179,179,179,.13), transparent 34%),
-    var(--panel);
-}
-
-.price-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 22px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-}
-
-.price-line:last-child {
-  border-bottom: 0;
-}
-
-.price-line strong {
-  color: var(--white);
-  font-size: 18px;
-}
+/* ========================================
+   Recent Work
+======================================== */
 
 .work-grid {
   display: grid;
@@ -431,6 +338,10 @@ h3 {
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .work-card::after {
@@ -440,13 +351,18 @@ h3 {
   background: linear-gradient(transparent, rgba(0,0,0,.72));
 }
 
+.work-card:hover,
+.work-card.tap-active {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 45px rgba(10, 10, 10, 0.45);
+}
+
 .work-card span {
   position: relative;
   z-index: 1;
   font-weight: 900;
   color: var(--white);
 }
-
 
 .windshield-photo {
   grid-area: banner;
@@ -473,6 +389,11 @@ h3 {
   background-position: center 50%;
 }
 
+
+/* ========================================
+   Process
+======================================== */
+
 .process {
   background: #080808;
 }
@@ -493,6 +414,11 @@ h3 {
   margin-top: 20px;
   font-size: 18px;
 }
+
+
+/* ========================================
+   Brand Statement / Reviews
+======================================== */
 
 .reviews {
   padding-top: 70px;
@@ -525,15 +451,10 @@ h3 {
   margin: auto;
 }
 
-.review-card span {
-  display: block;
-  color: var(--silver);
-  margin-top: 28px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 12px;
-}
+
+/* ========================================
+   Quote
+======================================== */
 
 .quote {
   padding-top: 70px;
@@ -555,6 +476,11 @@ h3 {
   margin-right: auto;
 }
 
+
+/* ========================================
+   Footer
+======================================== */
+
 .footer {
   border-top: 1px solid var(--line);
   padding: 34px 6%;
@@ -569,6 +495,11 @@ h3 {
   width: 150px;
   max-height: 42px;
 }
+
+
+/* ========================================
+   Reveal Animation
+======================================== */
 
 .reveal {
   opacity: 0;
@@ -585,19 +516,19 @@ h3 {
 .delay-2 { transition-delay: .16s; }
 .delay-3 { transition-delay: .24s; }
 
+
+/* ========================================
+   Responsive
+======================================== */
+
 @media (max-width: 980px) {
   .desktop-nav {
     display: flex;
     margin-left: 15px;
   }
 
-  .hero-grid,
-  .pricing {
+  .hero-grid {
     grid-template-columns: 1fr;
-  }
-
-  .showcase {
-    min-height: 430px;
   }
 
   .service-grid,
@@ -605,18 +536,32 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .work-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 230px 230px;
-  gap: 18px;
-  grid-template-areas:
-    "banner plate logo shirts"
-    "banner install install shirts";
-}
-
   h1 {
     letter-spacing: -3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 12px;
+  }
+
+  .brand img {
+    width: 105px;
+    height: auto;
+  }
+
+  .desktop-nav {
+    gap: 10px;
+  }
+
+  .desktop-nav a {
+    font-size: 10px;
+  }
+
+  .nav-cta {
+    font-size: 10px;
+    padding: 6px 10px;
   }
 }
 
@@ -659,56 +604,13 @@ h3 {
     letter-spacing: -1.8px;
   }
 
-  .lead {
-    font-size: 17px;
-  }
-
   .button {
     width: 100%;
     text-align: center;
   }
 
-  .showcase {
-    min-height: 330px;
-    border-radius: 26px;
-  }
-
-  .showcase-top,
-  .showcase-bottom {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-.service-grid {
-  grid-template-columns: 1fr;
-}
-
-.process-grid {
-  grid-template-columns: 1fr;
-}
-.work-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 230px 230px;
-  gap: 18px;
-  grid-template-areas:
-    "banner plate logo shirts"
-    "banner install install shirts";
-}
-
-  .work-card.tall,
-  .footer {
-    flex-direction: column;
-    gap: 18px;
-    text-align: center;
-  }
-
-  .cursor-glow {
-    display: none;
-  }
-}
-@media (max-width: 620px) {
-  .service-grid {
+  .service-grid,
+  .process-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 18px !important;
@@ -717,11 +619,6 @@ h3 {
   .service-card {
     min-height: auto !important;
     height: auto !important;
-  }
-
-  .process-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
   }
 
   .work-grid {
@@ -740,36 +637,10 @@ h3 {
   .work-card {
     min-height: 230px;
   }
-}
-.work-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.work-card:hover,
-.work-card.tap-active {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 20px 45px rgba(10, 10, 10, 0.45);
-}
-@media (max-width: 768px) {
-  .brand img {
-    width: 105px;
-    height: auto;
-  }
-
-  .desktop-nav {
-    gap: 10px;
-  }
-
-  .desktop-nav a {
-    font-size: 10px;
-  }
-
-  .nav-cta {
-    font-size: 10px;
-    padding: 6px 10px;
-  }
-
-  .header {
-    padding: 8px 12px;
+  .footer {
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
   }
 }
