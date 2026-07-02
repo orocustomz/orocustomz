@@ -94,25 +94,7 @@ a {
 }
 
 .desktop-nav a {
-  position: relative;
   transition: color .2s ease;
-}
-
-.desktop-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform .15s ease;
-}
-
-.desktop-nav a.active::after {
-  transform: scaleX(1);
 }
 
 .desktop-nav a:hover {
