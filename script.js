@@ -187,3 +187,13 @@ if (instagramLink) {
 // ========================================
 
 document.getElementById("year").textContent = new Date().getFullYear();
+document.querySelector(".footer-logo")?.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  history.replaceState(null, "", window.location.pathname);
+});
