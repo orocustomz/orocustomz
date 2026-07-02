@@ -792,3 +792,9 @@ h3 {
     0 20px 40px rgba(0, 0, 0, 0.45),
     0 0 22px rgba(255, 255, 255, 0.18);
 }
+.work-card.tap-active {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(255, 255, 255, 0.18);
+}

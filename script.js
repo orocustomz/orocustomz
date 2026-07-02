@@ -140,3 +140,14 @@ smoothLinks.forEach((link) => {
 
 window.addEventListener("scroll", updateActiveNav);
 window.addEventListener("load", updateActiveNav);
+document.querySelectorAll(".work-card").forEach((card) => {
+  card.addEventListener("touchstart", () => {
+    card.classList.add("tap-active");
+  });
+
+  card.addEventListener("touchend", () => {
+    setTimeout(() => {
+      card.classList.remove("tap-active");
+    }, 180);
+  });
+});
