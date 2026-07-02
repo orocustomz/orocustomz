@@ -68,7 +68,7 @@ if (tickerTrack) {
 
     animateTicker();
 }
-// Smooth scrolling + active nav underline + remove URL hash
+// Smooth scrolling + active underline + remove URL hash
 const navLinks = document.querySelectorAll(".desktop-nav a");
 
 navLinks.forEach((link) => {
@@ -76,9 +76,9 @@ navLinks.forEach((link) => {
     e.preventDefault();
 
     navLinks.forEach((item) => item.classList.remove("active"));
-    this.classList.add("active");
+    link.classList.add("active");
 
-    const target = document.querySelector(this.getAttribute("href"));
+    const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
 
     target.scrollIntoView({
