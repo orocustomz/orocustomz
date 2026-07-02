@@ -68,15 +68,26 @@ if (tickerTrack) {
 
     animateTicker();
 }
-// Smooth scrolling + instant click underline + section-based underline
+// Smooth scrolling + active nav underline
 const navLinks = document.querySelectorAll(".desktop-nav a");
 const servicesSection = document.querySelector("#services");
 const workSection = document.querySelector("#work");
 
 let isClickScrolling = false;
+let currentSection = "";
 
-function clearActiveNav() {
-  navLinks.forEach((link) => link.classList.remove("active"));
+function setActive(section) {
+  if (currentSection === section) return;
+
+  currentSection = section;
+
+  navLinks.forEach(link => link.classList.remove("active"));
+
+  if (section) {
+    document
+      .querySelector(`.desktop-nav a[href="#${section}"]`)
+      ?.classList.add("active");
+  }
 }
 
 function updateActiveNav() {
@@ -84,37 +95,45 @@ function updateActiveNav() {
 
   const triggerPoint = window.innerHeight * 0.25;
 
-  clearActiveNav();
-
   const servicesRect = servicesSection.getBoundingClientRect();
   const workRect = workSection.getBoundingClientRect();
 
-  if (servicesRect.top <= triggerPoint && servicesRect.bottom >= triggerPoint) {
-    document.querySelector('.desktop-nav a[href="#services"]').classList.add("active");
-  } else if (workRect.top <= triggerPoint && workRect.bottom >= triggerPoint) {
-    document.querySelector('.desktop-nav a[href="#work"]').classList.add("active");
+  if (
+    servicesRect.top <= triggerPoint &&
+    servicesRect.bottom >= triggerPoint
+  ) {
+    setActive("services");
+  } else if (
+    workRect.top <= triggerPoint &&
+    workRect.bottom >= triggerPoint
+  ) {
+    setActive("work");
+  } else {
+    setActive("");
   }
 }
 
 navLinks.forEach((link) => {
-  link.addEventListener("click", function (e) {
+  link.addEventListener("click", (e) => {
     e.preventDefault();
 
     isClickScrolling = true;
 
-    clearActiveNav();
-    link.classList.add("active");
+    const section = link.getAttribute("href").replace("#", "");
+    setActive(section);
 
     const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
 
-    target.scrollIntoView({ behavior: "smooth" });
+    target.scrollIntoView({
+      behavior: "smooth"
+    });
 
     setTimeout(() => {
       history.replaceState(null, "", window.location.pathname);
       isClickScrolling = false;
       updateActiveNav();
-    }, 700);
+    }, 500);
   });
 });
 
