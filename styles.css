@@ -748,9 +748,7 @@ h3 {
 .work-card:hover,
 .work-card.tap-active {
   transform: translateY(-4px) scale(1.01);
-  box-shadow:
-    0 14px 28px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 45px rgba(10, 10, 10, 0.45);
 }
 @media (max-width: 768px) {
   .brand img {
