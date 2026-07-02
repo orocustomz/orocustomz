@@ -328,7 +328,7 @@ h3 {
 }
 
 .work-card {
-  border: 1px solid var(--line);
+  border: none;
   border-radius: 30px;
   padding: 22px;
   display: flex;
@@ -343,6 +343,9 @@ h3 {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Replace the real border with this */
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.08);
 }
 
 .work-card:hover,
@@ -351,7 +354,9 @@ h3 {
 .work-card.reveal.visible.tap-active {
   z-index: 5;
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 8px 40px rgba(20, 20, 20, 0.45);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 8px 40px rgba(20,20,20,.45);
 }
 
 .work-card span {
