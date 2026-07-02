@@ -787,8 +787,7 @@ h3 {
 }
 
 .work-card.tap-active,
-.work-card:hover,
-.work-card:active {
+.work-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.45),
