@@ -68,15 +68,19 @@ if (tickerTrack) {
 
     animateTicker();
 }
-// Smooth scrolling + active underline + remove URL hash
+// Smooth scrolling + instant click underline + section-based underline
 const navLinks = document.querySelectorAll(".desktop-nav a");
 const servicesSection = document.querySelector("#services");
 const workSection = document.querySelector("#work");
 
-function updateActiveNav() {
-  const triggerPoint = window.innerHeight * 0.15;
-
+function clearActiveNav() {
   navLinks.forEach((link) => link.classList.remove("active"));
+}
+
+function updateActiveNav() {
+  const triggerPoint = window.innerHeight * 0.25;
+
+  clearActiveNav();
 
   const servicesRect = servicesSection.getBoundingClientRect();
   const workRect = workSection.getBoundingClientRect();
@@ -91,6 +95,9 @@ function updateActiveNav() {
 navLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
+
+    clearActiveNav();
+    link.classList.add("active"); // appears immediately
 
     const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
