@@ -72,6 +72,7 @@ if (tickerTrack) {
 const navLinks = document.querySelectorAll(".desktop-nav a");
 const servicesSection = document.querySelector("#services");
 const workSection = document.querySelector("#work");
+const quoteSelection = document.querySelector("#quote");
 
 let isClickScrolling = false;
 let currentSection = "";
