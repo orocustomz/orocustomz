@@ -90,25 +90,3 @@ navLinks.forEach((link) => {
     }, 300);
   });
 });
-
-const pageSections = document.querySelectorAll("section[id]");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  pageSections.forEach((section) => {
-    const sectionTop = section.offsetTop - 140;
-
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
-  });
-});
