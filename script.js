@@ -70,9 +70,9 @@ if (tickerTrack) {
 }
 // Smooth scrolling + active nav underline
 const navLinks = document.querySelectorAll(".desktop-nav a");
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
 const servicesSection = document.querySelector("#services");
 const workSection = document.querySelector("#work");
-const quoteSection = document.querySelector("#quote");
 
 let isClickScrolling = false;
 let currentSection = "";
@@ -114,7 +114,7 @@ function updateActiveNav() {
   }
 }
 
-navLinks.forEach((link) => {
+smoothLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
 
