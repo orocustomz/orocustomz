@@ -74,7 +74,7 @@ const servicesSection = document.querySelector("#services");
 const workSection = document.querySelector("#work");
 
 function updateActiveNav() {
-  const triggerPoint = window.innerHeight * 0.35;
+  const triggerPoint = window.innerHeight * 0.25;
 
   navLinks.forEach((link) => link.classList.remove("active"));
 
