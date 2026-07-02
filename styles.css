@@ -108,7 +108,7 @@ a {
   background: #fff;
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform .25s ease;
+  transition: transform .15s ease;
 }
 
 .desktop-nav a.active::after {
