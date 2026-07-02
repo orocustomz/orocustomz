@@ -168,10 +168,26 @@
           Include the design, size, color, material, and where it’s going. I’ll reply with the best option and price.
         </p>
         <div class="hero-actions center">
-          <a class="button button-light" href="https://instagram.com/orocustomz" target="_blank" rel="noopener">DM on Instagram</a>
-          <a class="button button-dark" href="mailto:orocustomz@gmail.com?subject=Oro%20Customz%20Quote%20Request">Email Quote Request</a>
-        </div>
-      </div>
+  <a class="button button-light" href="#" onclick="openInstagram(event)">DM on Instagram</a>
+
+  <a class="button button-dark" href="mailto:orocustomz@gmail.com?subject=Oro%20Customz%20Quote%20Request">
+    Email Quote Request
+  </a>
+</div>
+
+<script>
+function openInstagram(e) {
+  e.preventDefault();
+
+  // Try to open the Instagram app
+  window.location.href = "instagram://user?username=orocustomz";
+
+  // If the app isn't installed, open the website instead
+  setTimeout(function () {
+    window.location.href = "https://instagram.com/orocustomz";
+  }, 500);
+}
+</script>
     </section>
   </main>
 
