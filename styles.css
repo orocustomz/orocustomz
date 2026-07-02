@@ -745,17 +745,10 @@ h3 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.work-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.45),
-    0 0 22px rgba(255, 255, 255, 0.18);
-}
-.work-card:active {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.45),
-    0 0 22px rgba(255, 255, 255, 0.18);
+.work-card:hover,
+.work-card.tap-active {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
 }
 @media (max-width: 768px) {
   .brand img {
