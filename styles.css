@@ -338,25 +338,20 @@ h3 {
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
+  z-index: 1;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.work-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,.72));
-}
-
 .work-card:hover,
 .work-card.tap-active,
 .work-card.reveal.visible:hover,
 .work-card.reveal.visible.tap-active {
+  z-index: 5;
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 20px 45px rgba(10, 10, 10, 0.45);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
 }
 
 .work-card span {
