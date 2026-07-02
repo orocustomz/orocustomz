@@ -744,6 +744,7 @@ h3 {
 .work-card:hover img {
   transform: scale(1.05);
 }
+
 @media (max-width: 768px) {
   .brand img {
     width: 105px;
