@@ -98,26 +98,20 @@ a {
   transition: color .2s ease;
 }
 
-.desktop-nav a:hover {
-  color: var(--white);
-}
-
 .desktop-nav a::after {
   content: "";
   position: absolute;
   left: 50%;
   bottom: -6px;
-  width: 100%;
+  width: 0;
   height: 2px;
   background: #fff;
-
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-  transition: transform 0.15s ease;
+  transform: translateX(-50%);
+  transition: width 0.16s ease;
 }
 
 .desktop-nav a.active::after {
-  transform: translateX(-50%) scaleX(1);
+  width: 100%;
 }
 
 .nav-cta {
