@@ -573,6 +573,7 @@ h3 {
 @media (max-width: 980px) {
   .desktop-nav {
     display: flex;
+    margin-left: 20px;
   }
 
   .hero-grid,
