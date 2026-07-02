@@ -751,13 +751,11 @@ h3 {
     0 20px 40px rgba(0, 0, 0, 0.45),
     0 0 22px rgba(255, 255, 255, 0.18);
 }
-
-.work-card img {
-  transition: transform 0.3s ease;
-}
-
-.work-card:hover img {
-  transform: scale(1.05);
+.work-card:active {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(255, 255, 255, 0.18);
 }
 @media (max-width: 768px) {
   .brand img {
@@ -781,4 +779,16 @@ h3 {
   .header {
     padding: 8px 12px;
   }
+}
+.work-card {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.work-card:active {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(255, 255, 255, 0.18);
 }
