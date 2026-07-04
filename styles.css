@@ -311,7 +311,7 @@ h3 {
   color: var(--muted);
   margin-top: 12px;
   .disclaimer {
-  font-size: 0.85rem;
+  font-size: 0.35rem;
   color: var(--silver);
 }
 }
