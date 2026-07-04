@@ -310,10 +310,6 @@ h3 {
 .quote-box p {
   color: var(--muted);
   margin-top: 12px;
-  .disclaimer {
-  font-size: 0.50rem;
-  color: var(--silver);
-}
 }
 
 
