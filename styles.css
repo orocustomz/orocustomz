@@ -398,6 +398,8 @@ h3 {
 
 .process {
   background: #080808;
+  padding-top:70px;
+  padding-bottom:50px;
 }
 
 .process-grid {
@@ -419,47 +421,11 @@ h3 {
 
 
 /* ========================================
-   Brand Statement / Reviews
-======================================== */
-
-.reviews {
-  padding-top: 70px;
-  padding-bottom: 70px;
-}
-
-.review-card {
-  max-width: 1040px;
-  margin: auto;
-  text-align: center;
-  border: 1px solid var(--line);
-  border-radius: 38px;
-  padding: 60px 24px;
-  background:
-    radial-gradient(circle at center, rgba(179,179,179,.16), transparent 42%),
-    linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
-}
-
-.review-card img {
-  width: min(360px, 86%);
-  margin-bottom: 34px;
-  opacity: .92;
-}
-
-.review-card p {
-  font-size: clamp(30px, 4.4vw, 60px);
-  line-height: 1;
-  letter-spacing: -2px;
-  max-width: 900px;
-  margin: auto;
-}
-
-
-/* ========================================
    Quote
 ======================================== */
 
 .quote {
-  padding-top: 70px;
+  padding-top: 35px;
 }
 
 .quote-box {
@@ -473,7 +439,7 @@ h3 {
 }
 
 .quote-box p {
-  max-width: 700px;
+  max-width: 740px;
   margin-left: auto;
   margin-right: auto;
 }
