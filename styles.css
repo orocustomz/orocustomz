@@ -270,7 +270,10 @@ h3 {
 /* ========================================
    Services
 ======================================== */
-
+#services {
+  padding-top: 90px;
+  padding-bottom: 20px;
+}
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -316,7 +319,9 @@ h3 {
 /* ========================================
    Recent Work
 ======================================== */
-
+#work .section-title {
+  margin-bottom: 24px;
+}
 .work-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -398,7 +403,7 @@ h3 {
 
 .process {
   background: #080808;
-  padding-top:70px;
+  padding-top:80px;
   padding-bottom:50px;
 }
 
@@ -553,7 +558,7 @@ h3 {
   }
 
   .section-pad {
-    padding: 82px 5%;
+    padding: 90px 5%;
   }
 
   .hero {
