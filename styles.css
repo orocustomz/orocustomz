@@ -383,7 +383,7 @@ h3 {
 
 .logo-photo {
   grid-area: logo;
-  background-position: center;
+  background-position: left 15%;
 }
 
 .install-photo {
